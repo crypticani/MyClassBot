@@ -1,6 +1,6 @@
-ID = 12108348
-PASSWORD = 'crypticani#M2'
+ID = <Your Registration no here>
+PASSWORD = '<your password here>'
 
-BROWSER_PATH = "/opt/brave.com/brave/brave"
+BROWSER_PATH = "<Path of Chrome here>"
 
-POLL_DELAY_TIME = 15
+POLL_DELAY_TIME = 30
