@@ -94,11 +94,14 @@ def do_polls():
             wait = WebDriverWait(driver, 5)
             element = wait.until(
                 EC.element_to_be_clickable((By.XPATH, '//button[starts-with(@aria-labelledby,"pollAnswerLabel")]')))
-            action = webdriver.common.action_chains.ActionChains(driver)
-            action.element.click().perform()
-            # wait for sometime to poll
+            # action = webdriver.common.action_chains.ActionChains(driver)
+            # action.element.click().perform()
+            # # wait for sometime to poll
+            # time.sleep(creds.POLL_DELAY_TIME)
+            # action.release().perform()
+
             time.sleep(creds.POLL_DELAY_TIME)
-            action.release().perform()
+            element.click()
             print('[+]', poll_number, 'poll(s) marked.')
             poll_number += 1
         except:
@@ -112,7 +115,7 @@ def join():
         # wait = WebDriverWait(driver, 3600)
         # wait.until(EC.visibility_of_element_located(By.ID("//a[@role='button']")))
         driver.find_element_by_class_name('btn').send_keys(Keys.RETURN)
-        time.sleep(6)
+        time.sleep(5)
         driver.switch_to.frame(driver.find_element_by_id('frame'))
         driver.find_element_by_xpath('//button[@aria-label="Microphone"]').send_keys(Keys.RETURN)
         time.sleep(20)
@@ -150,6 +153,7 @@ while True:
     brave_path = creds.BROWSER_PATH
     chrome_options = webdriver.ChromeOptions()
     chrome_options.binary_location = brave_path
+    chrome_options.add_argument("--use-fake-ui-for-media-stream")
 
     # uncomment line below to hide the class tab
     #chrome_options.headless = True
