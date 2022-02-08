@@ -1,6 +1,0 @@
-ID = 12345678
-PASSWORD = 'UMS Password'
-
-BROWSER_PATH = "Path of Chrome.exe"
-
-POLL_DELAY_TIME = 30
