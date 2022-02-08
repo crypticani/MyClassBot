@@ -15,15 +15,16 @@ def join():
         time.sleep(5)
         settings.driver.switch_to.frame(settings.driver.find_element_by_id('frame'))
         settings.driver.find_element_by_xpath('//button[@aria-label="Microphone"]').send_keys(Keys.RETURN)
-        time.sleep(20)
+        time.sleep(12)
         settings.driver.find_element_by_xpath('//button[@aria-label="Echo is audible"]').send_keys(Keys.RETURN)
         settings.driver.switch_to.default_content()
         return True
     except:
-        settings.driver.quit()
-        print(colored('[-] Join Button not available. Retrying in 30 Seconds', 'red', attrs=['reverse', 'blink']))
-        time.sleep(1 * 30)
-        return False
+        settings.driver.refresh()
+        # settings.driver.quit()
+        # print(colored('[-] Join Button not available. Retrying in 30 Seconds', 'red', attrs=['reverse', 'blink']))
+        # time.sleep(1 * 30)
+        # return False
 
 
 #login to codetantra
@@ -41,8 +42,6 @@ def do_login(username, password):
 
 
 def open():
-    # Define Brave path
-    settings.chrome_options.add_argument("--use-fake-ui-for-media-stream")
     settings.driver.get("http://myclass.lpu.in")
 
     # uncomment line below to hide the class tab

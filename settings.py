@@ -14,5 +14,6 @@ POLL_DELAY_TIME = 30
 brave_path = BROWSER_PATH
 chrome_options = webdriver.ChromeOptions()
 chrome_options.binary_location = brave_path
+chrome_options.add_argument("--use-fake-ui-for-media-stream")
 
 driver = webdriver.Chrome(ChromeDriverManager().install(), options=chrome_options)
