@@ -2,6 +2,7 @@ from selenium.webdriver.common.keys import Keys
 import time
 from termcolor import colored
 from settings import driver
+from Classes.login import join_again
 
 def add(hour, val):
     return str(int(hour) + val)

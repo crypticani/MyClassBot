@@ -6,12 +6,14 @@ from termcolor import colored
 from settings import driver, POLL_DELAY_TIME
 import Classes.CheckClass as check
 import time
+from Classes.chatbox import chatbox
 
 
 def do_polls():
     poll_number = 1
     print(colored('[+] Starting poll daemon', 'green'))
     # print('End time estimated:', cur_hour)
+    chatbox()
     driver.switch_to.frame(driver.find_element_by_id('frame'))
     while True:
         try:
@@ -25,6 +27,6 @@ def do_polls():
             poll_number += 1
         except:
             pass
-        if int(check.ryt_now().split(':')[1]) == 5:
+        if int(check.ryt_now().split(':')[1]) == 59:
             return
 

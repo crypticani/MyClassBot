@@ -15,7 +15,7 @@ def join():
         time.sleep(5)
         settings.driver.switch_to.frame(settings.driver.find_element_by_id('frame'))
         settings.driver.find_element_by_xpath('//button[@aria-label="Microphone"]').send_keys(Keys.RETURN)
-        time.sleep(12)
+        time.sleep(10)
         settings.driver.find_element_by_xpath('//button[@aria-label="Echo is audible"]').send_keys(Keys.RETURN)
         settings.driver.switch_to.default_content()
         return True
@@ -47,6 +47,17 @@ def open():
     # uncomment line below to hide the class tab
     #chrome_options.headless = True
     # chrome_options.add_argument("--mute-audio")
+
+    try:
+        do_login(settings.ID, settings.PASSWORD)
+    except:
+        print(colored('[-] Probably your credentials are invalid', 'red'))
+        utils.abort()
+
+def join_again():
+    #open new tab
+    settings.driver.find_element_by_tag_name('body').send_keys(Keys.CONTROL + 't') 
+    settings.driver.get("http://myclass.lpu.in")
 
     try:
         do_login(settings.ID, settings.PASSWORD)
