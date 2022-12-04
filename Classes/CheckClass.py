@@ -48,6 +48,10 @@ def check_for_class(hour):
                 if len(extra_check) > 8:
                     continue
                 print(val, ' - Class Found')
+                # elements = driver.find_elements_by_class_name('fc-title')
+                # for e in elements:
+                #     print(e.text)
+
                 current_class.find_element_by_xpath("./../..").send_keys(Keys.RETURN)
                 return val
             except:

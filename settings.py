@@ -2,10 +2,10 @@ from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 
 
-ID = 12345678
-PASSWORD = 'UMS Password'
+ID = <your ums id>
+PASSWORD = '<your ums password>'
 
-BROWSER_PATH = "Path of Chrome.exe"
+BROWSER_PATH = "path of the browser"
 
 POLL_DELAY_TIME = 30
 

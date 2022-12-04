@@ -17,6 +17,8 @@ print(colored('Maintained by crypticani, originally developed by iron-war ', 'gr
 def main():
     have_class = False
     while True:
+        JOINED_TIME = time.strftime("%H:%M:%S",time.localtime())
+        print("current time: ", JOINED_TIME)
         login.open()
         hr = check.get_time()
         if int(hr) >= 20:
@@ -27,6 +29,8 @@ def main():
 
         if have_class and login.join():
             print(colored("[+] Joined the Class", 'green'))
+            JOINED_TIME = time.strftime("%H:%M:%S",time.localtime()) 
+            print("current time: ", JOINED_TIME)
             do_polls()
             
             settings.driver.refresh()
